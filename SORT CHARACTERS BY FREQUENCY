@@ -1,0 +1,14 @@
+from collections import Counter
+import heapq
+def frequencySort(s: str) -> str:
+      freq = Counter(s) 
+    max_heap = [(-count, char) for char, count in freq.items()]
+    heapq.heapify(max_heap) 
+    result = []
+    while max_heap:
+        count, char = heapq.heappop(max_heap)
+        result.append(char * (-count))  
+    return ''.join(result)
+print(frequencySort("tree"))   # Output: "eert" or "eetr"
+print(frequencySort("cccaaa")) # Output: "aaaccc" or "cccaaa"
+print(frequencySort("Aabb"))   # Output: "bbAa" or "bbaA"
