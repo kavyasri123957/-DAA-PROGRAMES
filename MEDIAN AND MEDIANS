@@ -1,0 +1,18 @@
+def manual_sort(arr): 
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+def median_of_medians(arr):
+    sorted_arr = manual_sort(arr)
+    n = len(sorted_arr)
+    mid = n // 2
+    if n % 2 == 0:
+        return (sorted_arr[mid - 1] + sorted_arr[mid]) / 2
+    else:
+        return sorted_arr[mid]
+data = [3, 1, 2, 5, 4]
+print(median_of_medians(data))
+
