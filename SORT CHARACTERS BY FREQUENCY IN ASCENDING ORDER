@@ -1,0 +1,6 @@
+from collections import Counter
+def sort_characters_by_frequency(s: str) -> str:  
+    frequency = Counter(s)
+    sorted_chars = sorted(frequency.items(), key=lambda x: (-x[1], x[0])
+    result = ''.join(char * count for char, count in sorted_chars)
+    return result
