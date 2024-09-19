@@ -1,0 +1,9 @@
+def group_odd_even(nums):
+odds = [num for num in nums if num % 2 != 0]
+evens = [num for num in nums if num % 2 == 0]
+odds.sort()
+evens.sort()
+return odds + evens
+nums = [12, 34, 45, 9, 8, 90, 67, 21]
+result = group_odd_even(nums)
+print("Grouped odd and even numbers:", result)
