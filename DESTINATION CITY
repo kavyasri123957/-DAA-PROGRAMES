@@ -1,0 +1,13 @@
+def destCity(paths):
+    outgoing_cities = set()
+    all_cities = set()
+    for start, end in paths:
+        outgoing_cities.add(start)
+        all_cities.add(end)
+    for city in all_cities:
+        if city not in outgoing_cities:
+            return city
+    return None 
+print(destCity([["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]])) 
+print(destCity([["B","C"],["D","B"],["C","A"]]))  # Output: "A"
+print(destCity([["A","Z"]]))  # Output: "Z"
