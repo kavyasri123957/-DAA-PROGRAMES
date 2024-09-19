@@ -1,0 +1,10 @@
+def can_break(s1, s2):
+def can_break_helper(x, y):
+return all(x[i] >= y[i] for i in range(len(x)))
+sorted_s1 = ''.join(sorted(s1))
+sorted_s2 = ''.join(sorted(s2))
+return can_break_helper(sorted_s1, sorted_s2) or can_break_helper(sorted_s2, sorted_s1)
+s1 = "abc"
+s2 = "xya"
+result = can_break(s1, s2)
+print("Can s1 break s2 or vice-versa:", result)
