@@ -1,0 +1,20 @@
+def min_value_string(s):
+freq = {}
+s_list = list(s)
+for i in range(len(s_list)):
+if s_list[i] == '?':
+best_char = None
+min_cost_increase = float('inf')
+for char in 'abcdefghijklmnopqrstuvwxyz':
+cost_increase = freq.get(char, 0)
+if cost_increase < min_cost_increase:
+min_cost_increase = cost_increase
+best_char = char
+freq[best_char] = freq.get(best_char, 0) + 1
+else:
+freq[s_list[i]] = freq.get(s_list[i], 0) + 1
+return ''.join(s_list)
+s = "a?b?c"
+result = min_value_string(s)
+print("String with minimized value:", result)
+
