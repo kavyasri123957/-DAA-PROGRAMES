@@ -1,0 +1,11 @@
+def is_palindrome(s):
+"""Check if a string is a palindrome using recursion."""
+if len(s) <= 1:
+return True
+if s[0] == s[-1]:
+return is_palindrome(s[1:-1])
+test_string = "radar"
+if is_palindrome(test_string):
+print(f"'{test_string}' is a palindrome.")
+else:
+print(f"'{test_string}' is not a palindrome.")
