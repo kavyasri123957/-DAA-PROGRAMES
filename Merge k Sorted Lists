@@ -1,0 +1,41 @@
+import heapq
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next        
+    def __lt__(self, other):
+        return self.val < other.val
+def mergeKLists(lists):
+    dummy = ListNode()
+    current = dummy 
+    min_heap = []    
+    for i, l in enumerate(lists):
+        if l:
+            heapq.heappush(min_heap, (l.val, i, l)
+    while min_heap:      
+        val, i, node = heapq.heappop(min_heap)
+        current.next = node
+        current = current.next
+        if node.next:
+            heapq.heappush(min_heap, (node.next.val, i, node.next))  
+    return dummy.nex
+def printList(node):
+    while node:
+        print(node.val, end=" -> ")
+        node = node.next
+    print("None")
+def createLinkedList(lst):
+    dummy = ListNode()
+    current = dummy
+    for val in lst:
+        current.next = ListNode(val)
+        current = current.next
+    return dummy.next
+
+lists = [
+    createLinkedList([1, 4, 5]),
+    createLinkedList([1, 3, 4]),
+    createLinkedList([2, 6])
+]
+merged_list = mergeKLists(lists)
+printList(merged_list)  # Output: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6 -> None
