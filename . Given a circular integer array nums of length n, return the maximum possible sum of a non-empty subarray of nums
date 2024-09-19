@@ -1,0 +1,15 @@
+def max_subarray_sum(nums):
+max_ending_here = max_so_far = nums[0]
+for num in nums[1:]:
+max_ending_here = max(num, max_ending_here + num)
+max_so_far = max(max_so_far, max_ending_here)
+return max_so_far
+def max_circular_subarray_sum(nums):
+total_sum = sum(nums)
+max_normal = max_subarray_sum(nums)
+inverted_nums = [-num for num in nums]
+max_inverted = max_subarray_sum(inverted_nums)
+max_circular = total_sum + max_inverted
+nums = [1, -2, 3, -2]
+result = max_circular_subarray_sum(nums)
+print("The maximum possible sum of a non-empty subarray in a circular integer array is:", result)
