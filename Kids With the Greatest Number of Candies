@@ -1,0 +1,6 @@
+def kidsWithCandies(candies: list[int], extraCandies: int) -> list[bool]:
+    max_candies = max(candies)
+    result = [(candy + extraCandies) >= max_candies for candy in candies]    
+    return result
+print(kidsWithCandies([2,3,5,1,3], 3))  # Output: [true,true,true,false,true]
+print(kidsWithCandies([4,2,1,1,2], 1))  # Output: [true,false,false,false,false]
