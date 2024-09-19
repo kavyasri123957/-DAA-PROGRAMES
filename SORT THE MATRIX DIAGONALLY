@@ -1,0 +1,21 @@
+from collections import defaultdict
+def diagonalSort(mat):
+    diagonals = defaultdict(list)  
+    rows, cols = len(mat), len(mat[0])
+    for i in range(rows):
+        for j in range(cols):
+            diagonals[i - j].append(mat[i][j])
+    for diagonal in diagonals:
+        diagonals[diagonal].sort(reverse=True)
+    for i in range(rows):
+        for j in range(cols):
+            mat[i][j] = diagonals[i - j].pop()   
+    return mat
+matrix = [
+    [3, 3, 1, 1],
+    [2, 2, 1, 2],
+    [1, 1, 1, 2]
+]
+sorted_matrix = diagonalSort(matrix)
+for row in sorted_matrix:
+    print(row)
