@@ -1,0 +1,8 @@
+def checkIfCanBreak(s1: str, s2: str) -> bool:
+    sorted_s1 = sorted(s1)
+    sorted_s2 = sorted(s2)
+    def can_break(a, b):
+        return all(x >= y for x, y in zip(a, b))
+    return can_break(sorted_s1, sorted_s2) or can_break(sorted_s2, sorted_s1)
+print(checkIfCanBreak("abc", "xya"))    
+print(checkIfCanBreak("leetcodee", "interview"))
