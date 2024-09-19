@@ -1,0 +1,16 @@
+def rearrange_array(nums):
+odds = [num for num in nums if num % 2 != 0]
+evens = [num for num in nums if num % 2 == 0]
+odd_index = 1
+even_index = 0
+result = [0] * len(nums)
+for even in evens:
+result[even_index] = even
+even_index += 2
+for odd in odds:
+result[odd_index] = odd
+odd_index += 2
+return result
+nums = [1, 2, 3, 4, 5, 6]
+result = rearrange_array(nums)
+print("Rearranged array:", result)
