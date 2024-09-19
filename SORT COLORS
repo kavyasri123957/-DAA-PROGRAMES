@@ -1,0 +1,21 @@
+colors = [
+    ("Red", (255, 0, 0)),
+    ("Green", (0, 255, 0)),
+    ("Blue", (0, 0, 255)),
+    ("Yellow", (255, 255, 0)),
+    ("Cyan", (0, 255, 255)),
+    ("Magenta", (255, 0, 255)),
+    ("White", (255, 255, 255)),
+    ("Black", (0, 0, 0)),
+    ("Gray", (128, 128, 128))
+]
+def brightness(rgb):
+    return (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2])
+sorted_by_brightness = sorted(colors, key=lambda x: brightness(x[1]))
+sorted_by_rgb = sorted(colors, key=lambda x: x[1])
+print("Colors sorted by brightness (luminance):")
+for color in sorted_by_brightness:
+    print(f"{color[0]}: {color[1]}")
+print("\nColors sorted by RGB values:")
+for color in sorted_by_rgb:
+    print(f"{color[0]}: {color[1]}")
